@@ -1,5 +1,8 @@
 # gradient-badges
 
+[![npm][version]](https://www.npmjs.com/package/gradient-badges)
+[![XO code style][xo]](https://github.com/sindresorhus/xo)
+
 > Badge generator with gradient support
 
 ## Install
@@ -23,8 +26,12 @@ const svgString = badges({
 })
 ```
 
-Result: ![Result](https://cdn.rawgit.com/bokub/gradient-badges/master/examples/version.svg)
+Result: ![Result][version-example]
 
 ## Dependencies
 
 - [badgen](https://github.com/amio/badgen) - Fast handcraft svg badge generator.
+
+[version]: https://rawgit.com/bokub/gradient-badges/master/examples/version.svg
+[xo]: https://rawgit.com/bokub/gradient-badges/master/examples/xo.svg
+[version-example]: https://rawgit.com/bokub/gradient-badges/master/examples/version-example.svg
