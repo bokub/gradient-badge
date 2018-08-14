@@ -1,0 +1,19 @@
+
+      <svg width="80.6" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g>
+          <rect width="35.099999999999994" height="20" fill="#555"/>
+          <rect x="35.099999999999994" width="45.5" height="20" fill="url(#x)"/>
+        </g>
+        <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">
+          <text x="6.3" y="14.8" textLength="24.9" fill="#000" opacity="0.1">npm</text>
+          <text x="5.3" y="13.8" textLength="24.9">npm</text>
+          <text x="40.599999999999994" y="14.8" fill="#000" opacity="0.1" textLength="35.5">v1.2.3</text>
+          <text x="39.599999999999994" y="13.8" textLength="35.5">v1.2.3</text>
+        </g>
+        
+        <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#E59;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#f78642;stop-opacity:1" />
+        </linearGradient>
+      </svg>
+    
