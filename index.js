@@ -6,7 +6,7 @@ const addGradient = (str, grad) => {
 	for (let i = 0; i < grad.length; i++) {
 		const offset = Math.round((100 * i) / (grad.length - 1));
 		const color = colorPresets[grad[i]] || grad[i];
-		replacement += `\n          <stop offset="${offset}%" style="stop-color:#${color};stop-opacity:1" />`;
+		replacement += `\n          <stop offset="${offset}%" style="stop-color:#${color}" />`;
 	}
 	replacement += `\n        </linearGradient>\n      </svg>`;
 	return str.replace('</svg>', replacement);
