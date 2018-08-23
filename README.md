@@ -26,12 +26,18 @@ const svgString = badges({
 })
 ```
 
-Result: ![Result][version-example]
+Result: ![Result][usage]
+
+## Examples
+
+![Code style][standard]
+
 
 ## Dependencies
 
 - [badgen](https://github.com/amio/badgen) - Fast handcraft svg badge generator.
 
-[version]: https://rawgit.com/bokub/gradient-badges/master/examples/version.svg
-[xo]: https://rawgit.com/bokub/gradient-badges/master/examples/xo.svg
-[version-example]: https://rawgit.com/bokub/gradient-badges/master/examples/version-example.svg
+[version]: https://bokub.github.io/gradient-badges/examples/version.svg
+[xo]: https://bokub.github.io/gradient-badges/examples/xo.svg
+[usage]: https://bokub.github.io/gradient-badges/examples/usage.svg
+[standard]: https://bokub.github.io/gradient-badges/examples/standard.svg
