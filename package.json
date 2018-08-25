@@ -1,8 +1,8 @@
 {
   "name": "gradient-badges",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "dependencies": {
-    "badgen": "^2.2.2"
+    "badgen": "^2.4.2"
   },
   "devDependencies": {
     "xo": "^0.22.0"
@@ -13,11 +13,12 @@
   "homepage": "https://github.com/bokub/gradient-badges",
   "keywords": [
     "badge",
+    "badgen",
     "badges",
     "color",
+    "gradient",
     "colors",
     "colour",
-    "gradient",
     "gradients",
     "readme",
     "shields",
@@ -26,7 +27,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "demo": "node examples/_demo.js",
+    "example": "node examples/_example.js",
     "test": "xo"
   }
 }
