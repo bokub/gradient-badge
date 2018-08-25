@@ -44,6 +44,10 @@
             padding: 5px;
             outline: none;
         }
+        .result svg {
+            transform: scale(1.5);
+            margin: 15px 0;
+        }
         pre {
             text-align: left;
         }
@@ -84,9 +88,7 @@
                 <stop offset="100%" :style="'stop-color:' + rightColor"/>
             </linearGradient>
         </svg>
-
-        <br><br>
-
+        <br>
         <svg width="93.6" height="20" viewBox="0 0 936 200" xmlns="http://www.w3.org/2000/svg">
             <g>
                 <rect fill="#555" width="500" height="200"/>
@@ -104,13 +106,11 @@
             </linearGradient>
         </svg>
 
-        <br><br>
-
         <pre>
-const svgString = badges({
+let svgString = badges({
   subject: 'subject',
   status: 'status',
-  gradient: ['{{leftColorInput.substring(1)}}','{{rightColorInput.substring(1)}}']
+  gradient: ['{{leftColorInput.substring(1)}}', '{{rightColorInput.substring(1)}}']
 })
         </pre>
 
@@ -123,13 +123,15 @@ const svgString = badges({
 </div>
 
 <script>
+    const LEFT = '#b65cff';
+    const RIGHT = '#11cbfa';
     new Vue({
         el: "#app",
         data: {
-            leftColor: '#ff7df4',
-            leftColorInput: '#ff7df4',
-            rightColor: '#9b29ff',
-            rightColorInput: '#9b29ff',
+            leftColor: LEFT,
+            leftColorInput: LEFT,
+            rightColor: RIGHT,
+            rightColorInput: RIGHT,
             leftColorPicker: null,
             rightColorPicker: null,
         },
