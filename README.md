@@ -5,6 +5,8 @@
 
 > Badge generator with gradient support
 
+Check out the [demo][demo] 🍭
+
 ## Install
 
 ```
@@ -19,10 +21,10 @@ $ npm i gradient-badges
 const badges = require('gradient-badges')
 
 const svgString = badges({
-  subject: 'version',   // <Text>
-  status: 'v1.2.3', // <Text>
+  subject: 'version',   // <text>
+  status: 'v1.2.3', // <text>
   style: 'flat',    // 'flat' or undefined, optional
-  gradient: ['pink', 'F78642'] // Array of colors (Hexadecimal or name)
+  gradient: ['pink', 'F78642'] // array of colors (Hexadecimal or name)
 })
 ```
 
@@ -30,7 +32,19 @@ Result: ![Result][usage]
 
 ## Examples
 
-![Code style][standard]
+Here are a few examples of what you can do. Check out the [demo][demo] to make your own
+
+![Stars][stars]
+
+![Standard][standard]
+
+![Patreon][patreon]
+
+![Instagram][instagram]
+
+![Vue.js][vue]
+
+![Rainbow][rainbow]
 
 
 ## Dependencies
@@ -39,5 +53,14 @@ Result: ![Result][usage]
 
 [version]: https://bokub.github.io/gradient-badges/examples/version.svg
 [xo]: https://bokub.github.io/gradient-badges/examples/xo.svg
+
 [usage]: https://bokub.github.io/gradient-badges/examples/usage.svg
+
+[demo]: https://git.io/gradient-badges
+
+[stars]: https://bokub.github.io/gradient-badges/examples/stars.svg
 [standard]: https://bokub.github.io/gradient-badges/examples/standard.svg
+[patreon]: https://bokub.github.io/gradient-badges/examples/patreon.svg
+[instagram]: https://bokub.github.io/gradient-badges/examples/instagram.svg
+[vue]: https://bokub.github.io/gradient-badges/examples/vue.svg
+[rainbow]: https://bokub.github.io/gradient-badges/examples/rainbow.svg

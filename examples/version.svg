@@ -1,20 +1,20 @@
 
-    <svg width="80.6" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg width="73.9" height="20" viewBox="0 0 739 200" xmlns="http://www.w3.org/2000/svg">
       <linearGradient id="a" x2="0" y2="100%">
-        <stop offset="0" stop-color="#EEE" stop-opacity=".1"/>
+        <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
         <stop offset="1" stop-opacity=".1"/>
       </linearGradient>
-      <mask id="m"><rect width="80.6" height="20" rx="3" fill="#FFF"/></mask>
+      <mask id="m"><rect width="739" height="200" rx="30" fill="#FFF"/></mask>
       <g mask="url(#m)">
-        <rect width="35.099999999999994" height="20" fill="#555"/>
-        <rect x="35.099999999999994" width="45.5" height="20" fill="url(#x)"/>
-        <rect width="80.6" height="20" fill="url(#a)"/>
+        <rect width="349" height="200" fill="#555"/>
+        <rect width="390" height="200" fill="url(#x)" x="349"/>
+        <rect width="739" height="200" fill="url(#a)"/>
       </g>
-      <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">
-        <text x="6.5" y="14.8" textLength="24.9" fill="#000" opacity="0.25">npm</text>
-        <text x="5.5" y="13.8" textLength="24.9">npm</text>
-        <text x="40.599999999999994" y="14.8" fill="#000" opacity="0.25" textLength="35.5">v0.1.2</text>
-        <text x="39.599999999999994" y="13.8" textLength="35.5">v0.1.2</text>
+      <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+        <text x="60" y="148" textLength="249" fill="#000" opacity="0.25">npm</text>
+        <text x="50" y="138" textLength="249">npm</text>
+        <text x="404" y="148" textLength="290" fill="#000" opacity="0.25">1.0.0</text>
+        <text x="394" y="138" textLength="290">1.0.0</text>
       </g>
       
       <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">

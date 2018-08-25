@@ -1,26 +1,26 @@
 
-    <svg width="62.5" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg width="62.3" height="20" viewBox="0 0 623 200" xmlns="http://www.w3.org/2000/svg">
       <linearGradient id="a" x2="0" y2="100%">
-        <stop offset="0" stop-color="#EEE" stop-opacity=".1"/>
+        <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
         <stop offset="1" stop-opacity=".1"/>
       </linearGradient>
-      <mask id="m"><rect width="62.5" height="20" rx="3" fill="#FFF"/></mask>
+      <mask id="m"><rect width="623" height="200" rx="30" fill="#FFF"/></mask>
       <g mask="url(#m)">
-        <rect width="36.3" height="20" fill="#555"/>
-        <rect x="36.3" width="26.2" height="20" fill="url(#x)"/>
-        <rect width="62.5" height="20" fill="url(#a)"/>
+        <rect width="361" height="200" fill="#555"/>
+        <rect width="262" height="200" fill="url(#x)" x="361"/>
+        <rect width="623" height="200" fill="url(#a)"/>
       </g>
-      <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">
-        <text x="6.5" y="14.8" textLength="26.1" fill="#000" opacity="0.25">style</text>
-        <text x="5.5" y="13.8" textLength="26.1">style</text>
-        <text x="41.8" y="14.8" fill="#000" opacity="0.25" textLength="16.2">XO</text>
-        <text x="40.8" y="13.8" textLength="16.2">XO</text>
+      <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+        <text x="60" y="148" textLength="261" fill="#000" opacity="0.25">style</text>
+        <text x="50" y="138" textLength="261">style</text>
+        <text x="416" y="148" textLength="162" fill="#000" opacity="0.25">XO</text>
+        <text x="406" y="138" textLength="162">XO</text>
       </g>
       
       <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#7ee8d8" />
+          <stop offset="0%" style="stop-color:#ff94c8" />
           <stop offset="50%" style="stop-color:#cacfda" />
-          <stop offset="100%" style="stop-color:#ffa4cd" />
+          <stop offset="100%" style="stop-color:#61eddb" />
         </linearGradient>
       </svg>
   

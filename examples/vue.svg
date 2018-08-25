@@ -1,0 +1,19 @@
+
+      <svg width="108.6" height="20" viewBox="0 0 1086 200" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <rect fill="#555" width="640" height="200"/>
+          <rect fill="url(#x)" x="640" width="446" height="200"/>
+        </g>
+        <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+          <text x="50" y="148" textLength="540" fill="#000" opacity="0.1">build with</text>
+          <text x="50" y="138" textLength="540">build with</text>
+          <text x="695" y="148" textLength="346" fill="#000" opacity="0.1">Vue.js</text>
+          <text x="685" y="138" textLength="346">Vue.js</text>
+        </g>
+        
+        <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#42b883" />
+          <stop offset="100%" style="stop-color:#35495e" />
+        </linearGradient>
+      </svg>
+    
