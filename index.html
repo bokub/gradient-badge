@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Badge builder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <script src="https://rawgit.com/jaames/iro.js/master/dist/iro.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+
+    <style>
+        body {
+            background: #20262E;
+            padding: 30px 0;
+            font-family: 'Merriweather', serif;
+            text-align: center;
+        }
+        #app {
+            background: #fff;
+            border-radius: 4px;
+            padding: 40px 0;
+            width: 960px;
+            margin: auto;
+        }
+        h1 {
+            color: #3c3c3c;
+        }
+        h3 {
+            color: #616161;
+        }
+        .color-picker, .result {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+        input {
+            margin-top: 20px;
+            width: 80px;
+            border: none;
+            border-bottom: 1px solid #484848;
+            text-align: center;
+            padding: 5px;
+            outline: none;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <h1>gradient-badges</h1>
+    <h3>Live preview</h3>
+    <div class="color-picker">
+        <div id="color-picker-container-left"></div>
+        <input type="text" v-model="leftColorInput">
+    </div>
+
+    <div class="result">
+        <svg width="93.6" height="20" viewBox="0 0 936 200" xmlns="http://www.w3.org/2000/svg">
+            <linearGradient id="a" x2="0" y2="100%">
+                <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
+                <stop offset="1" stop-opacity=".1"/>
+            </linearGradient>
+            <mask id="m">
+                <rect width="936" height="200" rx="30" fill="#FFF"/>
+            </mask>
+            <g mask="url(#m)">
+                <rect width="500" height="200" fill="#555"/>
+                <rect width="436" height="200" fill="url(#x)" x="500"/>
+                <rect width="936" height="200" fill="url(#a)"/>
+            </g>
+            <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+                <text x="65" y="148" textLength="400" fill="#000" opacity="0.25">subject</text>
+                <text x="55" y="138" textLength="400">subject</text>
+                <text x="555" y="148" textLength="336" fill="#000" opacity="0.25">status</text>
+                <text x="545" y="138" textLength="336">status</text>
+            </g>
+            <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" :style="'stop-color:' + leftColor"/>
+                <stop offset="100%" :style="'stop-color:' + rightColor"/>
+            </linearGradient>
+        </svg>
+
+        <br><br>
+
+        <svg width="93.6" height="20" viewBox="0 0 936 200" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <rect fill="#555" width="500" height="200"/>
+                <rect fill="url(#x)" x="500" width="436" height="200"/>
+            </g>
+            <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+                <text x="65" y="148" textLength="400" fill="#000" opacity="0.1">subject</text>
+                <text x="55" y="138" textLength="400">subject</text>
+                <text x="555" y="148" textLength="336" fill="#000" opacity="0.1">status</text>
+                <text x="545" y="138" textLength="336">status</text>
+            </g>
+            <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" :style="'stop-color:' + leftColor"/>
+                <stop offset="100%" :style="'stop-color:' + rightColor"/>
+            </linearGradient>
+        </svg>
+
+        <br><br>
+
+        <pre>
+const svgString = badges({
+  subject: 'subject',
+  status: 'status',
+  gradient: ['{{leftColorInput.substring(1)}}','{{rightColorInput.substring(1)}}']
+})
+        </pre>
+
+    </div>
+    <div class="color-picker">
+        <div id="color-picker-container-right"></div>
+        <input type="text" v-model="rightColorInput">
+    </div>
+
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            leftColor: '#ff7df4',
+            leftColorInput: '#ff7df4',
+            rightColor: '#9b29ff',
+            rightColorInput: '#9b29ff',
+            leftColorPicker: null,
+            rightColorPicker: null,
+        },
+        watch: {
+            leftColorInput(val) {
+                this.leftColorPicker.color.hexString = val;
+            },
+            rightColorInput(val) {
+                this.rightColorPicker.color.hexString = val;
+            }
+        },
+        mounted() {
+            this.leftColorPicker = new iro.ColorPicker("#color-picker-container-left", {color: this.leftColor});
+            this.rightColorPicker = new iro.ColorPicker("#color-picker-container-right", {color: this.rightColor});
+            this.leftColorPicker.on("color:change", (c) => this.leftColor = c.hexString);
+            this.leftColorPicker.on("input:end", (c) => this.leftColorInput = c.hexString);
+            this.rightColorPicker.on("color:change", (c) => this.rightColor = c.hexString);
+            this.rightColorPicker.on("input:end", (c) => this.rightColorInput = c.hexString);
+        }
+    })
+</script>
+</body>
+</html>
