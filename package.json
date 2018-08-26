@@ -1,0 +1,13 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "start": "micro",
+    "predeploy": "now rm gradient-badges -y || true",
+    "deploy": "npm run predeploy && now --public && now alias"
+  },
+  "dependencies": {
+    "micro": "latest",
+    "gradient-badges": "latest",
+    "query-string": "latest"
+  }
+}

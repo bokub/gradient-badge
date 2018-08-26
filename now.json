@@ -1,0 +1,9 @@
+{
+  "name": "gradient-badges",
+  "alias": [
+    "gradient-badges"
+  ],
+  "engines": {
+    "node": "^10.0.0"
+  }
+}
