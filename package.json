@@ -1,6 +1,6 @@
 {
   "name": "gradient-badges",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "badgen": "^2.4.2"
   },
@@ -27,7 +27,6 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "example": "node examples/_example.js",
     "test": "xo"
   }
 }
