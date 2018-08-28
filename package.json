@@ -2,7 +2,7 @@
   "name": "gradient-badges",
   "version": "1.0.1",
   "dependencies": {
-    "badgen": "^2.4.2"
+    "badgen": "^2.x"
   },
   "devDependencies": {
     "xo": "^0.22.0"
