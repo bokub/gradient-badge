@@ -1,10 +1,15 @@
 {
   "name": "gradient-badges",
   "version": "1.0.1",
+  "author": "Boris K",
   "dependencies": {
     "badgen": "^2.x"
   },
   "devDependencies": {
+    "ava": "^0.25.0",
+    "codecov": "^3.0.4",
+    "is-svg": "^3.0.0",
+    "nyc": "^13.0.1",
     "xo": "^0.22.0"
   },
   "files": [
@@ -16,9 +21,9 @@
     "badgen",
     "badges",
     "color",
-    "gradient",
     "colors",
     "colour",
+    "gradient",
     "gradients",
     "readme",
     "shields",
@@ -27,6 +32,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "xo"
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "test": "xo && nyc ava -v"
   }
 }

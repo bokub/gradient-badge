@@ -1,3 +1,10 @@
 *.log
 node_modules/
 package-lock.json
+
+.nyc_output
+coverage.lcov
+coverage
+
+.idea
+.vscode
