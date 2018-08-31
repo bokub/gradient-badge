@@ -10,7 +10,6 @@ for (const style of ['classic', 'flat']) {
 	const original = badgen(params);
 	const badge = badges(params);
 
-	console.log(badge);
 	test(prefix + 'is svg', t => {
 		t.true(isSvg(badge));
 	});
@@ -30,3 +29,11 @@ for (const style of ['classic', 'flat']) {
 	});
 }
 
+test('returns original badgen if no gradient', t => {
+	const params = {subject: 'version', status: 'v1.2.3'};
+	t.is(badges(params), badgen(params));
+	params.color = 'green';
+	t.is(badges(params), badgen(params));
+	params.gradient = 'ff0';
+	t.is(badges(params), badgen(params));
+});
