@@ -1,30 +1,30 @@
-# gradient-badges
+# gradient-badge
 
-[![npm](https://runkit.io/bokub/gb-v/branches/master)](https://www.npmjs.com/package/gradient-badges)
-[![Demo](https://runkit.io/bokub/badge/branches/master/demo/available/11998e-38ef7d)](https://git.io/gradient-badges)
-[![XO code style](https://runkit.io/bokub/badge/branches/master/style/XO/ff94c8-cacfda-61eddb)](https://github.com/sindresorhus/xo)
-[![License](https://runkit.io/bokub/badge/branches/master/license/MIT/ff426b-ffbc36)](https://github.com/bokub/gradient-badges/blob/master/LICENSE)
+[![npm][version]](https://www.npmjs.com/package/gradient-badge)
+[![Demo][demo-src]][demo]
+[![XO code style][xo]](https://github.com/sindresorhus/xo)
+[![License][license]](https://github.com/bokub/gradient-badge/blob/master/LICENSE)
 
-> Badge generator with gradient support
+> Badge generator with gradient support 🍭
 
 #### Check out the [demo][demo] to make your own badge
 
 ## Install
 
 ```
-$ npm i gradient-badges
+$ npm i gradient-badge
 ```
 
 ## Usage
 
-**gradient-badges** works exactly like [badgen](https://github.com/amio/badgen), with the **`gradient`** parameter in addition.
+**gradient-badge** works exactly like [badgen](https://github.com/amio/badgen), with the **`gradient`** parameter in addition.
 
 **Node.js**
 
 ```javascript
-const badges = require('gradient-badges')
+const gradientBadge = require('gradient-badge')
 
-const svgString = badges({
+const svgString = gradientBadge({
   subject: 'version',   // <text>
   status: 'v1.2.3', // <text>
   style: 'flat',    // 'flat' or undefined, optional
@@ -34,12 +34,9 @@ const svgString = badges({
 
 **Browser**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/gradient-badges@latest/dist/gradient-badges.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/gradient-badge@latest/dist/gradient-badge.min.js"></script>
 <script>
-  var svgString = gradientBadges({
-    // Same options as above
-  });
+  var svgString = gradientBadge({/* same as above */});
 </script>
 ```
 
@@ -68,9 +65,14 @@ Here are a few examples of what you can do.
 
 - [badgen](https://github.com/amio/badgen) - Fast handcraft svg badge generator.
 
+[version]: https://runkit.io/bokub/gb-v/branches/master
+[demo-src]: https://runkit.io/bokub/badge/branches/master/demo/available/11998e-38ef7d
+[xo]: https://runkit.io/bokub/badge/branches/master/style/XO/ff94c8-cacfda-61eddb
+[license]: https://runkit.io/bokub/badge/branches/master/license/MIT/ff426b-ffbc36
+
 [usage]: https://runkit.io/bokub/badge/branches/master/version/v1.2.3/pink-F78642?style=flat
 
-[demo]: https://git.io/gradient-badges
+[demo]: https://git.io/gradientbadge
 
 [stars]: https://runkit.io/bokub/badge/branches/master/stars/★★★★☆/00a65e-abf269
 [standard]: https://runkit.io/bokub/badge/branches/master/code%20style/standard/ff22aa-bf00ff?style=flat
