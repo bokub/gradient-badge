@@ -8,6 +8,7 @@
     <title>Gradient Badges - Live preview</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jaames/iro.js@9ac84b82a35ce676010bd3fcae8240ea89d40cac/dist/iro.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gradient-badges@latest/dist/gradient-badges.min.js"></script>
     <script src="https://embed.runkit.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 
@@ -16,138 +17,187 @@
         #app { background: #fff; border-radius: 4px; padding: 40px 0; width: 960px; margin: auto }
         h1 { color: #3c3c3c }
         h3 { color: #616161 }
-        .color-picker, .result { display: inline-block; vertical-align: middle; margin: 0 10px }
+
         .result svg { transform: scale(1.5); margin: 15px 0 }
-        input { margin-top: 20px; width: 80px; border: none; border-bottom: 1px solid #484848; text-align: center; padding: 5px; outline: none }
-        #notebook { margin: 50px 60px 10px }
+        .color-picker, .form { width: 440px }
+        input[type=checkbox] { height: 18px; bottom: 0 }
+        .color-counter, input { margin-top: 20px }
+        .color-counter > span, input { width: 75px; margin-left: 15px }
+        .color-counter > span > span { width: 20px; font-family: monospace }
+        .color-counter button { border-radius: 50%; width: 20px; height: 20px }
+        .color-preview { width: 25px; height: 22px; margin: 20px 5px; border-bottom: 3px solid rgba(0, 0, 0, 0.2) }
+        .color-preview.active { box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4) ; width: 30px; height: 27px }
+        input[type=radio] { position: fixed; opacity: 0; left: -9999px }
+
+        #color-picker-container { width: 320px; margin: auto; height: 350px }
+        #notebook { margin: 30px 60px 10px }
+        .notice { text-align: left; margin: 10px 60px; color: #625666; font-size: 14px }
+        .notice .code { color:#dd6546 ; font-family: monospace }
+        .publish button { width: 250px; border-radius: 5px; height: 40px; background: #33b277; color: #fff }
+        .publish button { margin: 30px 0 40px }
+
+        .inline-block { display: inline-block; vertical-align: middle }
+        button { font-family: 'Merriweather', serif; border: none; line-height: 20px; cursor: pointer }
+        input { border: none; border-bottom: 1px dashed #484848; text-align: center; font-family: monospace }
+        input { padding: 5px; outline: none; position: relative; bottom: 5px }
+
+        @media screen and (max-width: 1080px) { .github-corner { display: none } }
+
+        .github-corner:hover .octo-arm { animation:octocat-wave 560ms ease-in-out }
+        @keyframes octocat-wave { 0%,100% { transform:rotate(0) } 20%,60% { transform:rotate(-25deg) } 40%,80% {transform: rotate(10deg) } }
+        @media screen and (max-width: 1080px) { .github-corner { display: none } }
     </style>
 </head>
 <body>
 
 <div id="app">
+    <a href="https://github.com/bokub/gradient-badges" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#20262e; position: absolute; top: 0;
+         border: 0; right: 0;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0
+             123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                  fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6
+             C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1
+              C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6
+               C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5
+                C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7
+                 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+    </a>
     <h1>gradient-badges</h1>
     <h3>Live preview</h3>
-    <div class="color-picker">
-        <div id="color-picker-container-left"></div>
-        <input type="text" v-model="leftColorInput">
+    <div class="form inline-block">
+        <!-- Left panel -->
+        <div class="result" v-html="svgString"></div>
+        <div><label for="subject">subject</label><input type="text" v-model="subject" id="subject"></div>
+        <div><label for="status">status</label><input type="text" v-model="status" id="status"></div>
+        <div><label for="flat">flat</label><input type="checkbox" v-model="flat" id="flat"></div>
+        <div><label for="color">color</label><input type="text" v-model="colorInputValue" id="color"></div>
+        <div class="color-counter">
+            <label>colors</label>
+            <span class="inline-block">
+                <button type="button" @click="changeColorsLength(false)">-</button>
+                <span class="inline-block" v-text="colors.length"></span>
+                <button type="button" @click="changeColorsLength(true)">+</button>
+            </span>
+        </div>
+        <div>
+            <template v-for="(c, index) in colors" :key="index">
+                <input type="radio" v-model="colorIndex" :value="index" :id="'c' + index">
+                <label :for="'c' + index">
+                    <div class="color-preview inline-block" :class="{active: index == colorIndex}"
+                         :style="{'background-color': colors[index]}"></div>
+                </label>
+            </template>
+        </div>
     </div>
 
-    <div class="result">
-        <svg width="93.6" height="20" viewBox="0 0 936 200" xmlns="http://www.w3.org/2000/svg">
-            <linearGradient id="a" x2="0" y2="100%">
-                <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
-                <stop offset="1" stop-opacity=".1"/>
-            </linearGradient>
-            <mask id="m">
-                <rect width="936" height="200" rx="30" fill="#FFF"/>
-            </mask>
-            <g mask="url(#m)">
-                <rect width="500" height="200" fill="#555"/>
-                <rect width="436" height="200" fill="url(#x)" x="500"/>
-                <rect width="936" height="200" fill="url(#a)"/>
-            </g>
-            <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
-                <text x="65" y="148" textLength="400" fill="#000" opacity="0.25">subject</text>
-                <text x="55" y="138" textLength="400">subject</text>
-                <text x="555" y="148" textLength="336" fill="#000" opacity="0.25">status</text>
-                <text x="545" y="138" textLength="336">status</text>
-            </g>
-            <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" :style="'stop-color:' + leftColor"/>
-                <stop offset="100%" :style="'stop-color:' + rightColor"/>
-            </linearGradient>
-        </svg>
-        <br>
-        <svg width="93.6" height="20" viewBox="0 0 936 200" xmlns="http://www.w3.org/2000/svg">
-            <g>
-                <rect fill="#555" width="500" height="200"/>
-                <rect fill="url(#x)" x="500" width="436" height="200"/>
-            </g>
-            <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
-                <text x="65" y="148" textLength="400" fill="#000" opacity="0.1">subject</text>
-                <text x="55" y="138" textLength="400">subject</text>
-                <text x="555" y="148" textLength="336" fill="#000" opacity="0.1">status</text>
-                <text x="545" y="138" textLength="336">status</text>
-            </g>
-            <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" :style="'stop-color:' + leftColor"/>
-                <stop offset="100%" :style="'stop-color:' + rightColor"/>
-            </linearGradient>
-        </svg>
+    <!-- Right panel -->
+    <div class="color-picker inline-block">
+        <div id="color-picker-container"></div>
     </div>
 
-    <div class="color-picker">
-        <div id="color-picker-container-right"></div>
-        <input type="text" v-model="rightColorInput">
+    <!-- Bottom panel -->
+    <div class="publish">
+        <button type="button" @click="publishOnRunkit">Publish and host on Runkit</button>
+        <div v-if="notebookURI">
+            <p class="notice">
+                Add the following line to your README.md: <br>
+                <span class="code">[![Badge]({{notebookURI}})](https://git.io/gradient-badges)</span><br><br>
+                Any changes made to the code below will be taken in account.<br>
+                You can retrieve data from anywhere and use them as the badge status.
+            </p>
+        </div>
+        <div id="notebook"></div>
     </div>
 
-    <div id="notebook"></div>
 </div>
 
 <script>
     const LEFT = '#b65cff';
     const RIGHT = '#11cbfa';
+
     new Vue({
         el: "#app",
         data: {
-            leftColor: LEFT,
-            leftColorInput: LEFT,
-            rightColor: RIGHT,
-            rightColorInput: RIGHT,
-            leftColorPicker: null,
-            rightColorPicker: null,
+            subject: 'subject',
+            status: 'status',
+            colors: [LEFT, RIGHT],
+            flat: false,
+            colorIndex: 0,
+            colorInputValue: LEFT,
             notebook: null,
+            notebookURI: '',
+            picker: null,
         },
         watch: {
-            leftColorInput(val) {
-                this.leftColorPicker.color.hexString = val;
+            colorInputValue(val) {
+                this.picker.color.hexString = val;
             },
-            rightColorInput(val) {
-                this.rightColorPicker.color.hexString = val;
+            colorIndex(val) {
+                this.picker.color.hexString = this.colors[val];
+                this.colorInputValue = this.colors[val];
             },
-            code(val) {
-                this.notebook.getSource((oldVal) => {
-                    this.notebook.setSource(oldVal.replace(/gradient\s*:\s*\[[^\]]+]/, val))
-                });
-            }
         },
         computed: {
-            code() {
-                return `gradient: ['${this.leftColorInput.substr(1)}', '${this.rightColorInput.substr(1)}']`;
-            }
+            svgString() {
+                return gradientBadges({
+                    subject: this.subject,
+                    status: this.status,
+                    gradient: this.colors.map(el => el.substr(1)),
+                    style: this.flat ? 'flat' : undefined,
+                })
+            },
         },
         mounted() {
-            this.leftColorPicker = new iro.ColorPicker("#color-picker-container-left", {color: this.leftColor});
-            this.rightColorPicker = new iro.ColorPicker("#color-picker-container-right", {color: this.rightColor});
-            this.leftColorPicker.on("color:change", (c) => this.leftColor = c.hexString);
-            this.leftColorPicker.on("input:end", (c) => this.leftColorInput = c.hexString);
-            this.rightColorPicker.on("color:change", (c) => this.rightColor = c.hexString);
-            this.rightColorPicker.on("input:end", (c) => this.rightColorInput = c.hexString);
-
-            const source = `// Edit this code and click the green button to see the result
-// You can then use the badge on your README with the following line:
-// ![Badge](https://:url.runkit.sh)
-
-const badges = require('gradient-badges');
+            this.picker = new iro.ColorPicker("#color-picker-container", {color: this.colors[this.colorIndex]});
+            this.picker.on("color:change", (c) => this.colors.splice(this.colorIndex, 1, c.hexString));
+            this.picker.on("input:end", (c) => this.colorInputValue = c.hexString);
+        },
+        methods: {
+            publishOnRunkit() {
+                if (this.notebook) {
+                    this.notebook.setSource(this.getCode());
+                    return;
+                }
+                this.notebook = RunKit.createNotebook({
+                    element: document.getElementById('notebook'),
+                    endpoint: true,
+                    mode: 'endpoint',
+                    onLoad: () => this.notebook.getShareableURL(val =>
+                        this.notebookURI = val.replace('runkit.com/embed/', '') + '.runkit.sh'),
+                    source: this.getCode(),
+                });
+            },
+            getCode() {
+                return `const gradientBadges = require('gradient-badges');
 exports.endpoint = function (req, resp) {
     resp.setHeader('Content-Type', 'image/svg+xml');
-    resp.end(badges({
-        subject: 'subject', // text
-        status: 'status', // text
-        style: 'flat', // remove line for classic style
-        ${this.code.toString()} // use color-pickers to change
+    resp.end(gradientBadges({
+        subject: '${this.subject}',
+        status: '${this.status}',` +
+                    `${this.flat ? `\n        style: 'flat',` : ''}
+        gradient: [${this.colors.map(el => `'${el.substr(1)}'`).join(', ')}]
     }));
 }`;
-
-            this.notebook = RunKit.createNotebook({
-                element: document.getElementById('notebook'),
-                endpoint: true,
-                mode: 'endpoint',
-                onLoad: () => this.notebook.getShareableURL(val => {
-                    this.notebook.setSource(source.replace(':url', val.replace('https://runkit.com/embed/', '')));
-                }),
-                source: source,
-            });
+            },
+            randomColor() {
+                const randomHue = Math.round(Math.random() * 360);
+                return iro.Color.rgb2Hex(iro.Color.hsv2Rgb({h: randomHue, s: 100, v: 100}))
+            },
+            changeColorsLength(inc) {
+                if (inc) {
+                    this.colors.push(this.randomColor());
+                    this.colorIndex = this.colors.length - 1;
+                    return;
+                }
+                if (this.colors.length > 1) {
+                    this.colors.pop();
+                    this.colorIndex = Math.min(this.colorIndex, this.colors.length - 1);
+                }
+            }
         }
     })
 </script>
