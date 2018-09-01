@@ -5,10 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gradient Badges - Live preview</title>
+    <title>Gradient Badge - Live preview</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jaames/iro.js@9ac84b82a35ce676010bd3fcae8240ea89d40cac/dist/iro.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gradient-badges@latest/dist/gradient-badges.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gradient-badge@latest/dist/gradient-badge.min.js"></script>
     <script src="https://embed.runkit.com"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 
@@ -51,7 +51,7 @@
 <body>
 
 <div id="app">
-    <a href="https://github.com/bokub/gradient-badges" class="github-corner" aria-label="View source on Github">
+    <a href="https://github.com/bokub/gradient-badge" class="github-corner" aria-label="View source on Github">
         <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#20262e; position: absolute; top: 0;
          border: 0; right: 0;" aria-hidden="true">
             <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -66,7 +66,7 @@
                  141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
         </svg>
     </a>
-    <h1>gradient-badges</h1>
+    <h1>gradient-badge</h1>
     <h3>Live preview</h3>
     <div class="form inline-block">
         <!-- Left panel -->
@@ -105,7 +105,7 @@
         <div v-if="notebookURI">
             <p class="notice">
                 Add the following line to your README.md: <br>
-                <span class="code">[![Badge]({{notebookURI}})](https://git.io/gradient-badges)</span><br><br>
+                <span class="code">[![Badge]({{notebookURI}})](https://git.io/gradientbadge)</span><br><br>
                 Any changes made to the code below will be taken in account.<br>
                 You can retrieve data from anywhere and use them as the badge status.
             </p>
@@ -143,7 +143,7 @@
         },
         computed: {
             svgString() {
-                return gradientBadges({
+                return gradientBadge({
                     subject: this.subject,
                     status: this.status,
                     gradient: this.colors.map(el => el.substr(1)),
@@ -172,10 +172,10 @@
                 });
             },
             getCode() {
-                return `const gradientBadges = require('gradient-badges');
+                return `const gradientBadge = require('gradient-badge');
 exports.endpoint = function (req, resp) {
     resp.setHeader('Content-Type', 'image/svg+xml');
-    resp.end(gradientBadges({
+    resp.end(gradientBadge({
         subject: '${this.subject}',
         status: '${this.status}',` +
                     `${this.flat ? `\n        style: 'flat',` : ''}
