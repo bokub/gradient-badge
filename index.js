@@ -18,9 +18,14 @@ const addGradient = (str, grad) => {
 };
 
 module.exports = function (options) {
-	if (!Array.isArray(options.gradient)) {
+	if (!Array.isArray(options.gradient) || options.gradient.length === 0) {
 		return badgen(options);
 	}
+	if (options.gradient.length === 1) {
+		options.color = options.gradient[0];
+		return badgen(options);
+	}
+
 	options.color = 'url(#x)';
 	const svg = badgen(options).replace('#url', 'url');
 	return addGradient(svg, options.gradient);

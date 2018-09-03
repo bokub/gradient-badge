@@ -2,13 +2,13 @@ import test from 'ava';
 import isSvg from 'is-svg';
 import colorPresets from 'badgen/lib/color-presets';
 import badgen from 'badgen';
-import b from '.';
+import badges from '.';
 
 for (const style of ['classic', 'flat']) {
 	const prefix = style === 'classic' ? '[classic] ' : '   [flat] ';
 	const params = {subject: 'version', status: 'v1.2.3', style, gradient: ['pink', 'F78642']};
 	const original = badgen(params);
-	const badge = b(params);
+	const badge = badges(params);
 
 	test(prefix + 'is svg', t => {
 		t.true(isSvg(badge));
@@ -31,9 +31,13 @@ for (const style of ['classic', 'flat']) {
 
 test('returns original badgen if no gradient', t => {
 	const params = {subject: 'version', status: 'v1.2.3'};
-	t.is(b(params), badgen(params));
+	t.is(badges(params), badgen(params));
 	params.color = 'green';
-	t.is(b(params), badgen(params));
+	t.is(badges(params), badgen(params));
 	params.gradient = 'ff0';
-	t.is(b(params), badgen(params));
+	t.is(badges(params), badgen(params));
+	params.gradient = [];
+	t.is(badges(params), badgen(params));
+	params.gradient = ['ff0'];
+	t.is(badges(params), badgen(params));
 });
