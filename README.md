@@ -1,9 +1,10 @@
 # gradient-badge
 
 [![npm][version]](https://www.npmjs.com/package/gradient-badge)
+[![Build][build]](https://travis-ci.org/bokub/gradient-badge)
+[![Coverage][coverage]](https://codecov.io/gh/bokub/gradient-badge)
 [![Demo][demo-src]][demo]
 [![XO code style][xo]](https://github.com/sindresorhus/xo)
-[![License][license]](https://github.com/bokub/gradient-badge/blob/master/LICENSE)
 
 > Badge generator with gradient support 🍭
 
@@ -44,31 +45,22 @@ Result: ![Result][usage]
 
 ## Examples
 
-Here are a few examples of what you can do. 
+Here are a few more examples of what you can do. 
 
 #### Check out the [demo][demo] to make your own
 
-![Stars][stars]
-
-![Standard][standard]
-
-![Patreon][patreon]
-
-![Instagram][instagram]
-
-![Vue.js][vue]
-
-![Rainbow][rainbow]
+![Stars][stars] ![Standard][standard] ![Patreon][patreon] ![Instagram][instagram] ![Vue.js][vue] ![Rainbow][rainbow]
 
 
 ## Dependencies
 
 - [badgen](https://github.com/amio/badgen) - Fast handcraft svg badge generator.
 
-[version]: https://runkit.io/bokub/gb-v/branches/master
-[demo-src]: https://runkit.io/bokub/badge/branches/master/demo/available/11998e-38ef7d
+[version]: https://runkit.io/bokub/npm-version/branches/master/gradient-badge
+[demo-src]: https://runkit.io/bokub/badge/branches/master/demo/available/ffb836-fc6d60
 [xo]: https://runkit.io/bokub/badge/branches/master/style/XO/ff94c8-cacfda-61eddb
-[license]: https://runkit.io/bokub/badge/branches/master/license/MIT/ff426b-ffbc36
+[build]: https://runkit.io/bokub/build/branches/master/bokub/gradient-badge
+[coverage]: https://runkit.io/bokub/codecov/branches/master/bokub/gradient-badge
 
 [usage]: https://runkit.io/bokub/badge/branches/master/version/v1.2.3/pink-F78642?style=flat
 
@@ -79,4 +71,4 @@ Here are a few examples of what you can do.
 [patreon]: https://runkit.io/bokub/badge/branches/master/become/a%20patron/f96854-f9be75
 [instagram]: https://runkit.io/bokub/badge/branches/master/follow%20me/instagram/833ab4-fd1d1d-fcb045
 [vue]: https://runkit.io/bokub/badge/branches/master/built%20with/Vue.js/42b883-35495e?style=flat
-[rainbow]: https://runkit.io/bokub/badge/branches/master/rainbow/compatible/00a3e2-1ba548-fdc800-f1860e-e41b13
+[rainbow]: https://runkit.io/bokub/badge/branches/master/rainbow/compatible/ff4564-ffa82e-ffff00-21ed28-19ffa7-2edcff-5490ff-a787ff-ea8fff-ff5e84
