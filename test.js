@@ -1,7 +1,7 @@
 import test from 'ava';
 import isSvg from 'is-svg';
-import colorPresets from 'badgen/lib/color-presets';
 import badgen from 'badgen';
+import colorPresets from 'badgen/lib/color-presets';
 import badges from '.';
 
 for (const style of ['classic', 'flat']) {

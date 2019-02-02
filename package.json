@@ -1,11 +1,11 @@
 {
   "name": "gradient-badge",
   "description": "Badge generator with gradient support",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "Boris K",
   "bugs": "https://github.com/bokub/gradient-badge/issues",
   "dependencies": {
-    "badgen": "^2.x"
+    "badgen": "2.6.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",

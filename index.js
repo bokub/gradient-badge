@@ -1,5 +1,5 @@
 const badgen = require('badgen');
-const colorPresets = require('badgen/lib/color-presets.js');
+const colorPresets = require('badgen/lib/color-presets');
 
 const addGradient = (str, grad) => {
 	let svgGradient = '  <linearGradient id="x" x1="0%" y1="0%" x2="100%" y2="0%">';
