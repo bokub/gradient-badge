@@ -4,7 +4,7 @@
 [![Build][build]](https://travis-ci.org/bokub/gradient-badge)
 [![Coverage][coverage]](https://codecov.io/gh/bokub/gradient-badge)
 [![Demo][demo-src]][demo]
-[![XO code style][xo]](https://github.com/sindresorhus/xo)
+[![code style][prettier]](https://github.com/prettier/prettier)
 
 > Badge generator with gradient support 🍭
 
@@ -18,54 +18,68 @@ $ npm i gradient-badge
 
 ## Usage
 
-**gradient-badge** works exactly like [badgen](https://github.com/amio/badgen), with the **`gradient`** parameter in addition.
+**gradient-badge** works exactly like [badgen](https://github.com/badgen/badgen), with the **`gradient`** parameter in addition.
 
 **Node.js**
 
 ```javascript
-const gradientBadge = require('gradient-badge')
+const gradientBadge = require('gradient-badge');
 
 const svgString = gradientBadge({
-  subject: 'version',   // <text>
-  status: 'v1.2.3', // <text>
-  style: 'flat',    // 'flat' or undefined, optional
-  gradient: ['pink', 'F78642'] // array of colors (Hexadecimal or name)
-})
+    subject: 'version', // <text>
+    status: 'v1.2.3', // <text>
+    style: 'flat', // 'flat' or undefined, optional
+    // And any other parameter supported by badgen (icon, scale...)
+    gradient: ['pink', 'F78642'], // array of colors (Hexadecimal or name)
+});
 ```
 
 **Browser**
+
 ```html
 <script src="https://cdn.jsdelivr.net/npm/gradient-badge@latest/dist/gradient-badge.min.js"></script>
 <script>
-  var svgString = gradientBadge({/* same as above */});
+    var svgString = gradientBadge({
+        /* same as above */
+    });
 </script>
 ```
 
 Result: ![Result][usage]
 
+### Adding a gradient to a badge
+
+You can apply a color gradient to any badge already generated with badgen:
+
+```javascript
+const { badgen } = require('badgen');
+const { applyGradient } = require('gradient-badge');
+
+const originalBadge = badgen({
+    /* ... */
+});
+const svgString = applyGradient(originalBadge, ['B65CFF', 'cyan']);
+```
+
 ## Examples
 
-Here are a few more examples of what you can do. 
+Here are a few more examples of what you can do.
 
 #### Check out the [demo][demo] to make your own
 
 ![Stars][stars] ![Standard][standard] ![Patreon][patreon] ![Instagram][instagram] ![Vue.js][vue] ![Rainbow][rainbow]
 
-
 ## Dependencies
 
-- [badgen](https://github.com/amio/badgen) - Fast handcraft svg badge generator.
+-   [badgen](https://github.com/badgen/badgen) - Fast handcraft svg badge generator.
 
 [version]: https://runkit.io/bokub/npm-version/branches/master/gradient-badge
 [demo-src]: https://runkit.io/bokub/badge/branches/master/demo/available/ffb836-fc6d60
-[xo]: https://runkit.io/bokub/badge/branches/master/style/XO/ff94c8-cacfda-61eddb
+[prettier]: https://runkit.io/bokub/badge/branches/master/code%20style/prettier/ff94c8-cacfda-61eddb
 [build]: https://runkit.io/bokub/build/branches/master/bokub/gradient-badge
 [coverage]: https://runkit.io/bokub/codecov/branches/master/bokub/gradient-badge
-
 [usage]: https://runkit.io/bokub/badge/branches/master/version/v1.2.3/pink-F78642?style=flat
-
 [demo]: https://git.io/gradientbadge
-
 [stars]: https://runkit.io/bokub/badge/branches/master/stars/★★★★☆/00a65e-abf269
 [standard]: https://runkit.io/bokub/badge/branches/master/code%20style/standard/ff22aa-bf00ff?style=flat
 [patreon]: https://runkit.io/bokub/badge/branches/master/become/a%20patron/f96854-f9be75

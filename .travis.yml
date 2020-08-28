@@ -1,16 +1,13 @@
 language: node_js
 node_js:
-  - '10'
-  - '8'
-  - '6'
+    - 'node'
 
 after_success: npm run coverage
 
 deploy:
-  provider: npm
-  email: npm.bokub@mail.com
-  api_key: $NPM_TOKEN
-  skip_cleanup: true
-  on:
-    tags: true
-    node: '10'
+    provider: npm
+    email: npm.bokub@mail.com
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    on:
+        tags: true

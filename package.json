@@ -1,45 +1,48 @@
 {
-  "name": "gradient-badge",
-  "description": "Badge generator with gradient support",
-  "version": "1.2.4",
-  "author": "Boris K",
-  "bugs": "https://github.com/bokub/gradient-badge/issues",
-  "dependencies": {
-    "badgen": "2.6.0"
-  },
-  "devDependencies": {
-    "ava": "^0.25.0",
-    "codecov": "^3.0.4",
-    "is-svg": "^3.0.0",
-    "lyo": "latest",
-    "nyc": "^13.0.1",
-    "xo": "^0.22.0"
-  },
-  "files": [
-    "index.js",
-    "dist/gradient-badge.min.js"
-  ],
-  "homepage": "https://github.com/bokub/gradient-badge",
-  "keywords": [
-    "badge",
-    "badgen",
-    "badges",
-    "color",
-    "colors",
-    "colour",
-    "gradient",
-    "gradients",
-    "readme",
-    "shields",
-    "style"
-  ],
-  "license": "MIT",
-  "main": "index.js",
-  "repository": "bokub/gradient-badge",
-  "reveal": true,
-  "scripts": {
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "prepublishOnly": "lyo",
-    "test": "xo && nyc ava -v"
-  }
+    "name": "gradient-badge",
+    "description": "Badge generator with gradient support",
+    "version": "1.3.0",
+    "author": "Boris K",
+    "bugs": "https://github.com/bokub/gradient-badge/issues",
+    "dependencies": {
+        "badgen": "^3.2.1"
+    },
+    "devDependencies": {
+        "@bokub/prettier-config": "^1.0.1",
+        "ava": "^3.12.1",
+        "codecov": "^3.0.4",
+        "is-svg": "^3.0.0",
+        "lyo": "latest",
+        "nyc": "^15.1.0",
+        "prettier": "^2.1.1"
+    },
+    "files": [
+        "index.js",
+        "dist/gradient-badge.min.js"
+    ],
+    "homepage": "https://github.com/bokub/gradient-badge",
+    "keywords": [
+        "badge",
+        "badgen",
+        "badges",
+        "color",
+        "colors",
+        "colour",
+        "gradient",
+        "gradients",
+        "readme",
+        "shields",
+        "style"
+    ],
+    "license": "MIT",
+    "main": "index.js",
+    "repository": "bokub/gradient-badge",
+    "reveal": true,
+    "prettier": "@bokub/prettier-config",
+    "scripts": {
+        "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+        "prepublishOnly": "lyo",
+        "test": "nyc ava -v",
+        "prettier": "prettier --write **/*.{js,md,json,yml}"
+    }
 }
