@@ -37,7 +37,7 @@ const svgString = gradientBadge({
 **Browser**
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/gradient-badge@latest/dist/gradient-badge.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gradient-badge"></script>
 <script>
     var svgString = gradientBadge({
         /* same as above */
