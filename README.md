@@ -73,6 +73,10 @@ Here are a few more examples of what you can do.
 
 -   [badgen](https://github.com/badgen/badgen) - Fast handcraft svg badge generator.
 
+## See also
+
+-   [badge-action](https://github.com/emibcn/badge-action) - Create a badge using GitHub Actions.
+
 [version]: https://runkit.io/bokub/npm-version/branches/master/gradient-badge
 [demo-src]: https://runkit.io/bokub/badge/branches/master/demo/available/ffb836-fc6d60
 [prettier]: https://runkit.io/bokub/badge/branches/master/code%20style/prettier/ff94c8-cacfda-61eddb
