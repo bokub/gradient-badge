@@ -11,7 +11,7 @@
         "@bokub/prettier-config": "^1.0.1",
         "ava": "^3.12.1",
         "codecov": "^3.0.4",
-        "is-svg": "^3.0.0",
+        "is-svg": "^4.2.2",
         "lyo": "latest",
         "nyc": "^15.1.0",
         "prettier": "^2.1.1"
