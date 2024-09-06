@@ -77,16 +77,17 @@ Here are a few more examples of what you can do.
 
 -   [badge-action](https://github.com/emibcn/badge-action) - Create a badge using GitHub Actions.
 
-[version]: https://runkit.io/bokub/npm-version/branches/master/gradient-badge
-[demo-src]: https://runkit.io/bokub/badge/branches/master/demo/available/ffb836-fc6d60
-[prettier]: https://runkit.io/bokub/badge/branches/master/code%20style/prettier/ff94c8-cacfda-61eddb
-[build]: https://runkit.io/bokub/build/branches/master/bokub/gradient-badge
-[coverage]: https://runkit.io/bokub/codecov/branches/master/bokub/gradient-badge
-[usage]: https://runkit.io/bokub/badge/branches/master/version/v1.2.3/pink-F78642?style=flat
+[version]: https://gradgen.bokub.workers.dev/npm/v/gradient-badge?gradient=b65cff,11cbfa
+[demo-src]: https://gradgen.bokub.workers.dev/badge/demo/available?gradient=ffb836,fc6d60
+[prettier]: https://gradgen.bokub.workers.dev/badge/code%20style/prettier?gradient=ff94c8,cacfda,61eddb
+[build]: https://gradgen.bokub.workers.dev/github/checks/bokub/gradient-badge?gradient=ff9eec,d0a1fc
+[coverage]: https://gradgen.bokub.workers.dev/codecov/c/github/bokub/gradient-badge?gradient=00db78,10cde6
+[usage]: https://gradgen.bokub.workers.dev/badge/version/v1.2.3?gradient=pink,F78642&style=flat
 [demo]: https://git.io/gradientbadge
-[stars]: https://runkit.io/bokub/badge/branches/master/stars/★★★★☆/00a65e-abf269
-[standard]: https://runkit.io/bokub/badge/branches/master/code%20style/standard/ff22aa-bf00ff?style=flat
-[patreon]: https://runkit.io/bokub/badge/branches/master/become/a%20patron/f96854-f9be75
-[instagram]: https://runkit.io/bokub/badge/branches/master/follow%20me/instagram/833ab4-fd1d1d-fcb045
-[vue]: https://runkit.io/bokub/badge/branches/master/built%20with/Vue.js/42b883-35495e?style=flat
-[rainbow]: https://runkit.io/bokub/badge/branches/master/rainbow/compatible/ff4564-ffa82e-ffff00-21ed28-19ffa7-2edcff-5490ff-a787ff-ea8fff-ff5e84
+[stars]: https://gradgen.bokub.workers.dev/badge/stars/★★★★☆?gradient=00a65e,abf269
+[standard]: https://gradgen.bokub.workers.dev/badge/code%20style/standard?gradient=ff22aa,bf00ff&style=flat
+[patreon]: https://gradgen.bokub.workers.dev/badge/become/a%20patron?gradient=f96854,f9be75
+[instagram]: https://gradgen.bokub.workers.dev/badge/follow%20me/instagram?gradient=833ab4,fd1d1d,fcb045
+[vue]: https://gradgen.bokub.workers.dev/badge/built%20with/Vue.js?gradient=42b883,35495e&style=flat
+[rainbow]: https://gradgen.bokub.workers.dev/badge/rainbow/compatible?gradient=ff4564,ffa82e,ffff00,21ed28,19ffa7,2edcff,5490ff,a787ff,ea8fff,ff5e84
+
